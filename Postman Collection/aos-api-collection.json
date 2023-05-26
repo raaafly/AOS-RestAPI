@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "8c9c8c39-63ae-4501-93fe-24202643f13c",
+		"name": "API - Advantage Online Shopping",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AOS0001 - Login",
+			"item": [
+				{
+					"name": "001 - Login With Registered Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e9558337-808f-41d5-bb8d-0b0b3ae1fd38",
+								"exec": [
+									"pm.test('response status should be 200', () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									"\r",
+									"pm.test('response header Content-Type should be application/json', () => {\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test('response body should be have statusMessage as a object', () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res).to.have.property('statusMessage');\r",
+									"    pm.expect(res).to.be.an('object');\r",
+									"})\r",
+									"\r",
+									"pm.test('statusMessage object should to have property: success, userId, reason, token, sessionId', () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res.statusMessage).to.have.property('success')\r",
+									"    pm.expect(res.statusMessage).to.have.property('userId')\r",
+									"    pm.expect(res.statusMessage).to.have.property('reason')\r",
+									"    pm.expect(res.statusMessage).to.have.property('token')\r",
+									"    pm.expect(res.statusMessage).to.have.property('sessionId')\r",
+									"})\r",
+									"\r",
+									"pm.test(\"success property should exist, not be false, and to be a boolean\", () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res.statusMessage.success).to.be.exist\r",
+									"    pm.expect(res.statusMessage.success).to.be.true\r",
+									"    pm.expect(res.statusMessage.success).to.be.a(\"boolean\")\r",
+									"})\r",
+									"\r",
+									"pm.test(\"userId property should exist, not be null, to be a number, and be above zero\", () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res.statusMessage.userId).to.be.exist\r",
+									"    pm.expect(res.statusMessage.userId).not.equal(null)\r",
+									"    pm.expect(res.statusMessage.userId).to.be.a(\"number\")\r",
+									"    pm.expect(res.statusMessage.userId).to.be.above(0)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"reason property should exist, not be null, to be a string, and match `Login Successful`\", () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res.statusMessage.reason).to.be.exist\r",
+									"    pm.expect(res.statusMessage.reason).not.equal(null)\r",
+									"    pm.expect(res.statusMessage.reason).to.be.a(\"string\")\r",
+									"    pm.expect(res.statusMessage.reason).be.equal(\"Login Successful\")\r",
+									"})\r",
+									"\r",
+									"pm.test(\"token property should exist, not be null, and to be a string\", () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res.statusMessage.token).to.be.exist\r",
+									"    pm.expect(res.statusMessage.token).not.equal(null)\r",
+									"    pm.expect(res.statusMessage.token).to.be.a(\"string\")\r",
+									"})\r",
+									"\r",
+									"pm.test(\"sessionId property should exist, not be null, and to be a string\", () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res.statusMessage.sessionId).to.be.exist\r",
+									"    pm.expect(res.statusMessage.sessionId).not.equal(null)\r",
+									"    pm.expect(res.statusMessage.sessionId).to.be.a(\"string\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "25df1769-d876-48eb-9920-addf02326c4b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"loginUser\": \"{{validUsername}}\",\r\n    \"loginPassword\": \"{{validPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/accountservice/accountrest/api/v1/login"
+					},
+					"response": []
+				},
+				{
+					"name": "002 - Login With Unregistered Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e9558337-808f-41d5-bb8d-0b0b3ae1fd38",
+								"exec": [
+									"pm.test('response status should be 403', () => {\r",
+									"    pm.response.to.have.status(403);\r",
+									"})\r",
+									"\r",
+									"pm.test('response header Content-Type should be application/json', () => {\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.equals('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test('response body should be have statusMessage as a object', () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res).to.have.property('statusMessage');\r",
+									"    pm.expect(res).to.be.an('object');\r",
+									"})\r",
+									"\r",
+									"pm.test('statusMessage object should to have property: success, userId, reason', () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res.statusMessage).to.have.property('success')\r",
+									"    pm.expect(res.statusMessage).to.have.property('userId')\r",
+									"    pm.expect(res.statusMessage).to.have.property('reason')\r",
+									"})\r",
+									"\r",
+									"pm.test('statusMessage object should not to have property: token, sessionId', () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res.statusMessage).not.to.have.property('token')\r",
+									"    pm.expect(res.statusMessage).not.to.have.property('sessionId')\r",
+									"})\r",
+									"\r",
+									"pm.test(\"success property should exist, to be false, to be a boolean\", () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res.statusMessage.success).to.be.exist\r",
+									"    pm.expect(res.statusMessage.success).to.be.false\r",
+									"    pm.expect(res.statusMessage.success).to.be.a(\"boolean\")\r",
+									"})\r",
+									"\r",
+									"pm.test(\"userId property should exist, not be null, to be a number, and be above zero\", () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res.statusMessage.userId).to.be.exist\r",
+									"    pm.expect(res.statusMessage.userId).not.equal(null)\r",
+									"    pm.expect(res.statusMessage.userId).to.be.a(\"number\")\r",
+									"    pm.expect(res.statusMessage.userId).to.be.below(0)\r",
+									"})\r",
+									"\r",
+									"pm.test(\"reason property should exist, not be null, to be a string, and match `Login Successful`\", () => {\r",
+									"    const res = pm.response.json();\r",
+									"    pm.expect(res.statusMessage.reason).to.be.exist\r",
+									"    pm.expect(res.statusMessage.reason).not.equal(null)\r",
+									"    pm.expect(res.statusMessage.reason).to.be.a(\"string\")\r",
+									"    pm.expect(res.statusMessage.reason).be.equal(\"Incorrect user name or password.\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "33ec43d9-aa78-41c5-b752-c7c42334997c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"loginUser\": \"{{invalidUsername}}\",\r\n  \"loginPassword\": \"{{invalidPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/accountservice/accountrest/api/v1/login"
+					},
+					"response": []
+				},
+				{
+					"name": "003 - Login With Invalid Password 1x",
+					"_postman_id": "d81299a7-c196-48f2-b451-4a44ca195ce4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "004 - Login With Invalid Password 4x",
+					"_postman_id": "8048bb52-45c8-4c96-b3d6-ed881e5980a5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "005 - Login With Account Temporary Blocked Status",
+					"_postman_id": "6264a035-ff0e-4396-afe9-66ec866e7de7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "dece4358-16b9-4b9c-944a-b77b7fcdbb13"
+		},
+		{
+			"name": "AOS0002 - Register",
+			"item": [],
+			"_postman_id": "e626ad30-78ea-4b16-bf1b-787e680c1a4e"
+		},
+		{
+			"name": "AOS0003 - Cart",
+			"item": [],
+			"_postman_id": "378d351d-7093-4b13-a412-4bd58859a17b"
+		}
+	]
+}
