@@ -80,7 +80,7 @@
 							}
 						}
 					],
-					"_postman_id": "25df1769-d876-48eb-9920-addf02326c4b",
+					"id": "25df1769-d876-48eb-9920-addf02326c4b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -162,7 +162,7 @@
 							}
 						}
 					],
-					"_postman_id": "33ec43d9-aa78-41c5-b752-c7c42334997c",
+					"id": "33ec43d9-aa78-41c5-b752-c7c42334997c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -184,55 +184,52 @@
 				},
 				{
 					"name": "003 - Login With Invalid Password 1x",
-					"_postman_id": "d81299a7-c196-48f2-b451-4a44ca195ce4",
+					"id": "d81299a7-c196-48f2-b451-4a44ca195ce4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "POST",
-						"header": [],
-						"url": null
+						"header": []
 					},
 					"response": []
 				},
 				{
 					"name": "004 - Login With Invalid Password 4x",
-					"_postman_id": "8048bb52-45c8-4c96-b3d6-ed881e5980a5",
+					"id": "8048bb52-45c8-4c96-b3d6-ed881e5980a5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "POST",
-						"header": [],
-						"url": null
+						"header": []
 					},
 					"response": []
 				},
 				{
 					"name": "005 - Login With Account Temporary Blocked Status",
-					"_postman_id": "6264a035-ff0e-4396-afe9-66ec866e7de7",
+					"id": "6264a035-ff0e-4396-afe9-66ec866e7de7",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "POST",
-						"header": [],
-						"url": null
+						"header": []
 					},
 					"response": []
 				}
 			],
-			"_postman_id": "dece4358-16b9-4b9c-944a-b77b7fcdbb13"
+			"id": "dece4358-16b9-4b9c-944a-b77b7fcdbb13"
 		},
 		{
 			"name": "AOS0002 - Register",
 			"item": [],
-			"_postman_id": "e626ad30-78ea-4b16-bf1b-787e680c1a4e"
+			"id": "e626ad30-78ea-4b16-bf1b-787e680c1a4e"
 		},
 		{
 			"name": "AOS0003 - Cart",
 			"item": [],
-			"_postman_id": "378d351d-7093-4b13-a412-4bd58859a17b"
+			"id": "378d351d-7093-4b13-a412-4bd58859a17b"
 		}
 	]
 }
