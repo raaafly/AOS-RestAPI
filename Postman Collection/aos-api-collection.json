@@ -14,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e9558337-808f-41d5-bb8d-0b0b3ae1fd38",
+								"id": "c71324c2-2ef0-4fa2-94d9-78ec5ba3765c",
 								"exec": [
 									"pm.test('response status should be 200', () => {\r",
 									"    pm.response.to.have.status(200);\r",
